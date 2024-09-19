@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import InputFields from './InputFields';
 import ResultsBox from './ResultsBox';
 
@@ -37,7 +36,7 @@ const OutputBox = () => {
     <Box>
         <Typography variant="body" 
         sx={{ color: 'gray', marginBottom: '10px' }}>
-        Trucking Company, Inc
+        Trucking Company, Inc | 
         Driver Payroll Calculator
       </Typography>
     </Box>
@@ -69,7 +68,7 @@ const OutputBox = () => {
       <Typography variant="subtitle1"
         sx={{ color: 'gray', marginBottom: '10px' }}
       >
-        See list below for further instructions.
+        
       </Typography>
 
       <InputFields

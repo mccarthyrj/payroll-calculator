@@ -22,13 +22,9 @@ const InstructionsBox = () => {
         borderColor: 'gray'
       }}
     >
-            <List>
-                <ListItem>
-                  <ListItemText
-                    primary="Single-line item"
-                  />
-                </ListItem>
-            </List>
+      <Typography>
+        hello
+      </Typography>
     </Box>
   );
 }

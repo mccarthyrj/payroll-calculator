@@ -14,10 +14,10 @@ const ResultsBox = ({pay, bonus, total, setTotal}) => {
     <Box
       className="smallBox"
       sx={{
-        marginTop: '20px',
+        marginTop: '10px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'flex-start',
         height: 250,
         width: 500,
@@ -25,22 +25,22 @@ const ResultsBox = ({pay, bonus, total, setTotal}) => {
         borderColor: 'gray'
       }}>
 
-      <Typography variant="subtitle1"
+      <Typography variant="h5"
         sx={{ color: 'gray' }}
       >
-        Base Pay: {parseFloat(pay).toFixed(2)}
+        Base Pay: {'$' + parseFloat(pay).toFixed(2)}
       </Typography>
 
-      <Typography variant="subtitle1"
-        sx={{ color: 'gray' }}
+      <Typography variant="h5"
+        sx={{ color: 'gray', marginBottom: '20px' }}
       >
-        Bonus Pay: {parseFloat(bonus).toFixed(2)}
+        Bonus Pay: {'$' + parseFloat(bonus).toFixed(2)}
       </Typography>
 
-      <Typography variant="subtitle1"
+      <Typography variant="h4"
         sx={{ color: 'gray' }}
       >
-        Total Pay: {parseFloat(total).toFixed(2)}
+        Total Pay: {'$' + parseFloat(total).toFixed(2)}
       </Typography>
     </Box>
     <Button sx={{

@@ -34,9 +34,8 @@ const OutputBox = () => {
   return (
     <>
     <Box>
-        <Typography variant="body" 
-        sx={{ color: 'gray', marginBottom: '10px' }}>
-        Trucking Company, Inc | 
+        <Typography variant="h4" 
+        sx={{ color: 'black', marginBottom: '10px' }}>
         Driver Payroll Calculator
       </Typography>
     </Box>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -60,7 +61,7 @@ const InputFields = ({getPay, getBonus, getTotal}) => {
         display: 'flex',
         flexDirection: 'column'}}>
 
-      <h3>Base Pay Criteria</h3>
+      <Typography variant="h6" sx={{ color:'gray'}}>Base Pay Criteria</Typography>
 
       <TextField sx={{
         margin: '5px'}} 
@@ -96,7 +97,7 @@ const InputFields = ({getPay, getBonus, getTotal}) => {
       sx={{
         display: 'flex',
         flexDirection: 'column' }}>
-      <h3>Bonus Details (Optional)</h3>
+      <Typography variant="h6" sx={{color: 'gray', marginTop: '10px'}}>Bonus Details (Optional)</Typography>
       
       <TextField sx={{
         margin: '5px' }} 

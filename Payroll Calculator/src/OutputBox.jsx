@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import InputFields from './InputFields';
 import ResultsBox from './ResultsBox';
 
@@ -17,8 +18,8 @@ import ResultsBox from './ResultsBox';
 const OutputBox = () => {
 
   const [payData, setPayData] = useState(0);
-  const getTotalPay = (result) => {
-    setPayData(result);
+  const getBasePay = (amount) => {
+    setPayData(amount);
   };
 
   const [bonusData, setBonusData] = useState(0);
@@ -26,15 +27,16 @@ const OutputBox = () => {
     setBonusData(amount);
   };
 
+  const [totalData, setTotalData] = useState(0);
+  const getTotal = (amount) => {
+    setTotalData(amount);
+  };
+
   return (
     <>
     <Box>
         <Typography variant="body" 
-        sx={{ 
-          color: 'gray', 
-          marginBottom: '10px' 
-        }}
-        >
+        sx={{ color: 'gray', marginBottom: '10px' }}>
         Trucking Company, Inc
         Driver Payroll Calculator
       </Typography>
@@ -50,14 +52,11 @@ const OutputBox = () => {
         borderRadius: '8px',
         m: 1,
         width: 500,
-        height: 500
-      }}
+        height: 500 }}
       noValidate
       autoComplete="off">
 
-      <Typography variant="body"
-        sx={{ color: 'gray' }}
-      >
+      <Typography variant="body" sx={{ color: 'gray' }}>
         Enter data in fields below
       </Typography>
 
@@ -74,14 +73,16 @@ const OutputBox = () => {
       </Typography>
 
       <InputFields
-        getPay={getTotalPay}
+        getPay={getBasePay}
         getBonus={getBonus}
       />
     </Box>
 
       <ResultsBox
         pay={payData}
-        bonus={bonusData} 
+        bonus={bonusData}
+        total={totalData}
+        setTotal={getTotal}
       />
     </>
   );

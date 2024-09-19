@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
  * OutputBox component.
  */
 
-const InputFields = ({getPay, getBonus}) => {
+const InputFields = ({getPay, getBonus, getTotal}) => {
   const [miles, setMiles] = useState('');
   const [mileRate, setRate] = useState('');
   const [revenue, setRevenue] = useState('');
@@ -43,48 +43,84 @@ const InputFields = ({getPay, getBonus}) => {
     getBonus(bonusTotal)
   }
 
-  const totalPay = () => {
-
-    const payTotal = (parseFloat(miles) * parseFloat(mileRate / 100) + parseFloat(bonusAmount) + parseFloat(misc));
-    getPay(payTotal);
+  const basePay = () => {
+    const basePayTotal = (parseFloat(miles) * parseFloat(mileRate) + parseFloat(misc));
+    getPay(basePayTotal);
   }
+
+  // const totalPay = () => {
+  //   const allPayTotal = (parseFloat(basePay) + parseFloat(totalBonus));
+  //   getTotal(allPayTotal);
+  // }
 
   return (
     <>
       <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
-      }}>
+        flexDirection: 'column'}}>
+
       <h3>Base Pay Criteria</h3>
-      <TextField sx={{margin: '5px'}} id="outlined-basic" 
-        label="Miles" variant="outlined" value={miles}  onChange={handleMilesChange}/>
-      <TextField sx={{margin: '5px'}} id="outlined-basic" 
-        label="Mileage Rate" variant="outlined" value={mileRate} onChange={handleRateChange}/>
-      <TextField sx={{margin: '5px'}} id="outlined-basic" 
-        label="Miscellaneous, i.e. minimum rate, detention, etc." variant="outlined" value={misc} onChange={handleMiscChange}/>
+
+      <TextField sx={{
+        margin: '5px'}} 
+        id="outlined-basic" 
+        label="Miles" 
+        variant="outlined" 
+        value={miles}  
+        onChange={handleMilesChange}/>
+
+      <TextField sx={{
+        margin: '5px'}} 
+        id="outlined-basic" 
+        label="Mileage Rate" 
+        variant="outlined" 
+        value={mileRate} 
+        onChange={handleRateChange}/>
+
+      <TextField sx={{
+        margin: '5px'}} 
+        id="outlined-basic" 
+        label="Miscellaneous, i.e. minimum rate, detention, etc." 
+        variant="outlined" 
+        value={misc} 
+        onChange={handleMiscChange}/>
+
       <Button sx={{
-        display: 'flex',
-        marginBottom: '10px',
-        width: '250px'
-      }} variant="contained" onClick={totalPay}>Calculate Total Pay</Button>
+        width: '250px' }} 
+        variant="contained" 
+        onClick={basePay}>Calculate Base Pay</Button>
     </Box>
+
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
-      }}>
+        flexDirection: 'column' }}>
       <h3>Bonus Details (Optional)</h3>
-      <TextField sx={{margin: '5px'}} id="outlined-basic" label="Revenue" variant="outlined" value={revenue} onChange={handleRevChange}/>
-      <TextField sx={{margin: '5px'}} id="outlined-basic" label="Bonus" variant="outlined" value={bonus} onChange={handleBonusChange}/>
+      
+      <TextField sx={{
+        margin: '5px' }} 
+        id="outlined-basic" 
+        label="Revenue" 
+        variant="outlined" 
+        value={revenue} 
+        onChange={handleRevChange}/>
+      
+      <TextField sx={{
+        margin: '5px' }} 
+        id="outlined-basic" 
+        label="Bonus" 
+        variant="outlined" 
+        value={bonus} 
+        onChange={handleBonusChange}/>
+
       <Button sx={{
-        display: 'flex',
-        alignItems: 'center',
         marginBottom: '10px',
-        width: '250px'
-      }}
-      variant="contained" onClick={totalBonus}>Calculate Bonus</Button>
+        width: '250px' }}
+        variant="contained" 
+        onClick={totalBonus}>Calculate Bonus</Button>
     </Box>
+
     </>
   );
 }
